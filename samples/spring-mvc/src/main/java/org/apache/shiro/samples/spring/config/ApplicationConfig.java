@@ -55,7 +55,8 @@ import static org.apache.shiro.web.filter.mgt.DefaultFilter.anon;
         ShiroWebFilterConfiguration.class,
         JspViewsConfig.class,
         RemotingServletConfig.class,
-        ShiroRequestMappingConfig.class})
+        ShiroRequestMappingConfig.class
+})
 @ComponentScan("org.apache.shiro.samples.spring")
 public class ApplicationConfig {
 
@@ -106,8 +107,6 @@ public class ApplicationConfig {
     @Bean
     protected EhCacheManager cacheManager() {
 
-        EhCacheManager ehCacheManager = new EhCacheManager();
-
         // Set a net.sf.ehcache.CacheManager instance here if you already have one.
         // If not, a new one will be created with a default config:
         // ehCacheManager.setCacheManager(...);
@@ -117,7 +116,7 @@ public class ApplicationConfig {
         //will be used.:
         // ehCacheManager.setCacheManagerConfigFile("classpath:some/path/to/ehcache.xml");
 
-        return ehCacheManager;
+        return new EhCacheManager();
     }
 
     /**
@@ -165,7 +164,6 @@ public class ApplicationConfig {
         DefaultShiroFilterChainDefinition chainDefinition = new DefaultShiroFilterChainDefinition();
 //        chainDefinition.addPathDefinition("/login.html", "authc"); // need to accept POSTs from the login form
 //        chainDefinition.addPathDefinition("/logout", "logout");
-
 
         chainDefinition.addPathDefinition("/favicon.ico", "anon");
         chainDefinition.addPathDefinition("/logo.png", "anon");

@@ -43,7 +43,7 @@
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>${jetty.version}</version>
                 <configuration>
-                    <contextPath>/</contextPath>
+<!--                    <contextPath>/</contextPath>-->
                     <httpConnector>
                         <port>9080</port>
                         <idleTimeout>60000</idleTimeout>
